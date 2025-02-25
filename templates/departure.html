@@ -7,18 +7,19 @@
     <!-- CARDS -->
     <div class="row mt-5">
 
-      {% for tour_id, tour in tours.items() %}
+      {% for tour in tours %}
       <div class="col-4">
         <div class="card mb-4">
           <img src="{{ tour.picture }}" class="card-img-top img-fluid" alt="">
           <div class="card-body">
             <h2 class="h5 card-title">{{ tour.title }}</h2>
             <p class="card-text">{{ tour.description }}</p>
-            <a href="#" class="btn btn-sm btn-primary">Деталі туру</a>
+            <a href="{{ url_for('get_tour', tour_id=tour.id) }}" class="btn btn-sm btn-primary">Деталі туру</a>
           </div>
         </div>
       </div>
+      {% endfor %}
 
     </div>
   </main>
-  {% endblock content %}
+{% endblock content %}
